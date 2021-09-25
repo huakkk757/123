@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text" />
+		<button onclick="save()">发送</button>
+		<p id="box">
+			
+		</p>
+		<script>
+			var content=document.getElementById("text")
+			
+			var box=document.getElementById("box")
+			function save(){
+				localStorage.setItem("text",content.value)
+			}
+			window.addEventListener("storage",function(e){
+				var p=document.createElement("p")
+				p.innerHTML=e.newValue
+				box.appendChild(p)
+			})
+		</script>
+	</body>
+</html>
